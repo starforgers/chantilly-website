@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chantilly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-blue: #8A9DAB;
+            --color-red: #741912;
+            --color-white: #fff;
+            --color-beige: #FCEFDE;
+            --color-light-gray: #e6e4d5;
+            --nav-bar-height: 2rem;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            -webkit-font-smoothing: antialiased;
+            color: var(--color-red);
+            background-color: var(--color-beige);
+            line-height: 1;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-bar-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+            z-index: 100;
+            background-color: var(--color-beige);
+            border-bottom: 1px solid var(--color-light-gray);
+        }
+
+        .nav-logo {
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-size: 0.625rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--color-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-size: 0.625rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--color-red);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            margin-top: var(--nav-bar-height);
+            padding: 1.5rem 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .hero-brand {
+            font-size: clamp(5rem, 19vw, 19rem);
+            font-weight: 600;
+            font-style: italic;
+            line-height: 0.85;
+            letter-spacing: -0.02em;
+            color: var(--color-red);
+        }
+
+        .hero-images {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .img-placeholder {
+            background-color: var(--color-light-gray);
+        }
+
+        .hero-images .img-placeholder:first-child {
+            aspect-ratio: 4/5;
+        }
+
+        .hero-images .img-placeholder:last-child {
+            aspect-ratio: 3/4;
+            align-self: end;
+        }
+
+        /* ── Season Label Row ── */
+        .label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--color-light-gray);
+        }
+
+        .label-sm {
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* ── Intro ── */
+        .intro {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            padding: 2.5rem 1.5rem;
+            border-bottom: 1px solid var(--color-light-gray);
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.55;
+            font-weight: 300;
+        }
+
+        /* ── Collection ── */
+        .collection {
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        .collection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-light-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem 1rem;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .product-img {
+            background-color: var(--color-light-gray);
+            aspect-ratio: 3/4;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* ── Editorial ── */
+        .editorial {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 60vh;
+            border-top: 1px solid var(--color-light-gray);
+        }
+
+        .editorial-img {
+            background-color: var(--color-light-gray);
+        }
+
+        .editorial-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .editorial-tag {
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .editorial-title {
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .editorial-body {
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 300;
+            max-width: 38ch;
+        }
+
+        /* ── About ── */
+        .about {
+            background-color: var(--color-blue);
+            padding: 4rem 1.5rem;
+            border-top: 1px solid var(--color-light-gray);
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        .about-portrait {
+            background-color: var(--color-beige);
+            aspect-ratio: 3/4;
+            max-width: 380px;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background-color: var(--color-blue);
+            padding: 2.5rem 1.5rem 1.5rem;
+            border-top: 1px solid var(--color-light-gray);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-col h4 {
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-col a {
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-size: 0.65rem;
+            text-decoration: none;
+            color: var(--color-red);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--color-light-gray);
+            padding-top: 1rem;
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="nav-logo">Chantilly</a>
+        <ul class="nav-links">
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Collections</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#">Stockists</a></li>
+            <li><a href="#">Cart (0)</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1 class="hero-brand">Chantilly</h1>
+        <div class="hero-images">
+            <div class="img-placeholder"></div>
+            <div class="img-placeholder"></div>
+        </div>
+    </section>
+
+    <!-- Label Row -->
+    <div class="label-row">
+        <span class="label-sm">Spring / Summer 2026</span>
+        <span class="label-sm">New Collection — Available Now</span>
+    </div>
+
+    <!-- Intro -->
+    <section class="intro">
+        <div>
+            <p class="label-sm">The Label</p>
+        </div>
+        <div>
+            <p class="intro-text">
+                Chantilly is a clothing label rooted in the quiet elegance of everyday life. Each piece is designed to be worn, lived in, and loved — crafted from natural materials with an attention to detail that lasts well beyond the season.
+            </p>
+        </div>
+    </section>
+
+    <!-- Collection -->
+    <section class="collection">
+        <div class="collection-header">
+            <span class="label-sm">New Arrivals</span>
+            <span class="label-sm">View All →</span>
+        </div>
+        <div class="collection-grid">
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-meta">
+                    <span>Linen Draped Dress</span>
+                    <span>€285</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-meta">
+                    <span>Silk Wrap Top</span>
+                    <span>€195</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-meta">
+                    <span>Relaxed Linen Trouser</span>
+                    <span>€230</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-meta">
+                    <span>Ribbed Knit Cardigan</span>
+                    <span>€310</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-meta">
+                    <span>Linen Shirt Dress</span>
+                    <span>€260</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img"></div>
+                <div class="product-meta">
+                    <span>Bias-Cut Slip Skirt</span>
+                    <span>€175</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial -->
+    <section class="editorial">
+        <div class="editorial-img"></div>
+        <div class="editorial-content">
+            <p class="editorial-tag">Lookbook — S/S 2026</p>
+            <h2 class="editorial-title">Dressed for<br>the in-between</h2>
+            <p class="editorial-body">
+                Not quite day, not quite night. Not quite city, not quite country. Our spring collection lives in that pleasurable middle distance — in linen that moves, in silk that holds its shape, in clothes that ask nothing of you.
+            </p>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-inner">
+            <p class="label-sm">About</p>
+            <div class="about-content">
+                <p class="about-text">
+                    Chantilly was founded with a simple belief: that beautiful clothes should also be honest ones. We work directly with small mills and family-run ateliers across France and Portugal, choosing materials for how they feel on the body and how they age over time.
+                    <br><br>
+                    Our collections are intentionally small — each piece made to be worn again and again, not discarded at the end of a season. We are based in Paris, and we ship worldwide.
+                </p>
+                <div class="about-portrait"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Chantilly</h4>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                    <li><a href="#">Stockists</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Sizing Guide</a></li>
+                    <li><a href="#">Care Instructions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Customer</h4>
+                <ul>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">hello@chantilly.com</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Chantilly. All rights reserved.</span>
+            <span>Privacy — Terms</span>
+        </div>
+    </footer>
+
+</body>
+</html>
