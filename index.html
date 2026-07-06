@@ -229,12 +229,18 @@
 
         .editorial-img {
             background-color: var(--color-light-gray);
+            aspect-ratio: 2 / 3;
+            overflow: hidden;
+            position: relative;
         }
 
         .editorial-img img {
             display: block;
-            width: 100%;
+            position: absolute;
+            width: 120%;
             height: auto;
+            left: -10%;
+            top: -17%;
         }
 
         .editorial-content {
