@@ -239,6 +239,20 @@
             grid-template-columns: 32.8% 1fr;
         }
 
+        @media (max-width: 640px) {
+            .editorial {
+                grid-template-columns: 1fr;
+            }
+
+            .editorial-content {
+                order: 1;
+            }
+
+            .editorial-img {
+                order: 2;
+            }
+        }
+
         .editorial-img {
             background-color: var(--color-light-gray);
             aspect-ratio: 2 / 3;
