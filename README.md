@@ -19,7 +19,3 @@ Chantilly is a romantic, chic, and feminine clothing brand. Every piece is desig
 | `reference.png` | Design reference image |
 | `styles.md` | Design tokens and CSS notes |
 | `assets/` | Static assets (images, icons) |
-
-## Running
-
-Open `index.html` directly in a browser — no server needed.
