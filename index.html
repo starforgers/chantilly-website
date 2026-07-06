@@ -212,6 +212,11 @@
             object-fit: cover;
         }
 
+        .product-img img.focus-shirt {
+            transform: scale(1.6);
+            transform-origin: center 75%;
+        }
+
         .product-meta {
             display: flex;
             justify-content: space-between;
@@ -299,12 +304,6 @@
             font-weight: 300;
         }
 
-        .about-portrait {
-            background-color: var(--color-beige);
-            aspect-ratio: 3/4;
-            max-width: 380px;
-        }
-
         /* ── Footer ── */
         footer {
             background-color: var(--color-blue);
@@ -371,8 +370,8 @@
     <section class="hero">
         <h1 class="hero-brand">Chantilly</h1>
         <div class="hero-images">
-            <div class="img-placeholder"><img src="assets/minuet-set/web/hero-set.jpg" alt="Minuet Set — pinstripe double-breasted top and pleated mini skirt with lace trim"></div>
-            <div class="img-placeholder"><img src="assets/minuet-set/web/hero-detail.jpg" alt="Minuet Set — lace trim and button detail"></div>
+            <div class="img-placeholder"><img src="assets/minuet-set/web/hero-set.webp" alt="Minuet Set — pinstripe double-breasted top and pleated mini skirt with lace trim"></div>
+            <div class="img-placeholder"><img src="assets/minuet-set/web/hero-detail.webp" alt="Minuet Set — lace trim and button detail"></div>
         </div>
     </section>
 
@@ -402,21 +401,21 @@
         </div>
         <div class="collection-grid">
             <div class="product-card">
-                <div class="product-img"><img src="assets/minuet-set/web/product-set.jpg" alt="Minuet Set — full look"></div>
+                <div class="product-img"><img src="assets/minuet-set/web/product-set.webp" alt="Minuet Set — full look"></div>
                 <div class="product-meta">
                     <span>Minuet Set</span>
                     <span>₱3,000</span>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="assets/minuet-set/web/product-top.jpg" alt="Minuet Top"></div>
+                <div class="product-img"><img class="focus-shirt" src="assets/minuet-set/web/product-top.webp" alt="Minuet Top"></div>
                 <div class="product-meta">
                     <span>Minuet Top</span>
                     <span>₱1,950</span>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"><img src="assets/minuet-set/web/product-skirt.jpg" alt="Minuet Skirt"></div>
+                <div class="product-img"><img src="assets/minuet-set/web/product-skirt.webp" alt="Minuet Skirt"></div>
                 <div class="product-meta">
                     <span>Minuet Skirt</span>
                     <span>₱1,450</span>
@@ -428,7 +427,7 @@
 
     <!-- Editorial -->
     <section class="editorial">
-        <div class="editorial-img"><img src="assets/minuet-set/web/editorial.jpg" alt="Minuet Set — worn"></div>
+        <div class="editorial-img"><img src="assets/minuet-set/web/editorial.webp" alt="Minuet Set — worn"></div>
         <div class="editorial-content">
             <p class="editorial-tag">Lookbook — S/S 2026</p>
             <h2 class="editorial-title">Dressed for<br>the in-between</h2>
@@ -446,7 +445,6 @@
                 <p class="about-text">
                     Chantilly is a romantic, chic, and feminine clothing brand. Every piece is designed with love — crafted to make you feel confident, graceful, and completely yourself. From intricate lace detailing to classy, timeless silhouettes, Chantilly celebrates femininity in its most authentic and refined form.
                 </p>
-                <div class="about-portrait"></div>
             </div>
         </div>
     </section>
