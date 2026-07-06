@@ -246,6 +246,44 @@
             height: auto;
             left: -10%;
             top: -17%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            cursor: pointer;
+        }
+
+        .editorial-img img.active {
+            opacity: 1;
+        }
+
+        .editorial-img img.no-zoom {
+            width: 100%;
+            height: auto;
+            left: 0;
+            top: 0;
+        }
+
+        .editorial-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .editorial-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid var(--color-white);
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .editorial-dot.active {
+            background: var(--color-white);
         }
 
         .editorial-content {
@@ -422,7 +460,16 @@
 
     <!-- Editorial -->
     <section class="editorial">
-        <div class="editorial-img"><img src="assets/minuet-set/web/editorial.webp" alt="Minuet Set — worn"></div>
+        <div class="editorial-img" id="editorial-carousel">
+            <img src="assets/minuet-set/web/editorial.webp" alt="Minuet Set — worn" class="active">
+            <img src="assets/minuet-set/web/editorial-2.webp" alt="Minuet Set — back detail" class="no-zoom">
+            <img src="assets/minuet-set/web/editorial-3.webp" alt="Minuet Set — close-up detail" class="no-zoom">
+            <div class="editorial-dots">
+                <button class="editorial-dot active" data-index="0" aria-label="Show photo 1"></button>
+                <button class="editorial-dot" data-index="1" aria-label="Show photo 2"></button>
+                <button class="editorial-dot" data-index="2" aria-label="Show photo 3"></button>
+            </div>
+        </div>
         <div class="editorial-content">
             <p class="editorial-tag">Lookbook — S/S 2026</p>
             <h2 class="editorial-title">Dressed for<br>the in-between</h2>
@@ -466,6 +513,52 @@
             <span>Privacy — Terms</span>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            const carousel = document.getElementById('editorial-carousel');
+            const slides = carousel.querySelectorAll('img');
+            const dots = carousel.querySelectorAll('.editorial-dot');
+            let index = 0;
+            let autoplay = true;
+            let timer;
+
+            function show(i) {
+                slides[index].classList.remove('active');
+                dots[index].classList.remove('active');
+                index = i;
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+            }
+
+            function next() {
+                show((index + 1) % slides.length);
+            }
+
+            function stopAutoplay() {
+                autoplay = false;
+                clearInterval(timer);
+            }
+
+            timer = setInterval(function () {
+                if (autoplay) next();
+            }, 4000);
+
+            dots.forEach(function (dot, i) {
+                dot.addEventListener('click', function () {
+                    stopAutoplay();
+                    show(i);
+                });
+            });
+
+            slides.forEach(function (slide) {
+                slide.addEventListener('click', function () {
+                    stopAutoplay();
+                    next();
+                });
+            });
+        })();
+    </script>
 
 </body>
 </html>
