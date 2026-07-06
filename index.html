@@ -8,6 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Bonfield Serif';
+            src: url('assets/fonts/bonfield-serif.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         :root {
             --color-blue: #8A9DAB;
             --color-red: #741912;
@@ -48,10 +55,10 @@
         }
 
         .nav-logo {
-            font-family: 'Inter', Helvetica, sans-serif;
-            font-size: 0.625rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
+            font-family: 'Bonfield Serif', 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            text-transform: none;
             text-decoration: none;
             color: var(--color-red);
         }
@@ -79,12 +86,14 @@
         }
 
         .hero-brand {
+            font-family: 'Bonfield Serif', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(5rem, 19vw, 19rem);
-            font-weight: 600;
-            font-style: italic;
+            font-weight: normal;
+            font-style: normal;
             line-height: 0.85;
             letter-spacing: -0.02em;
             color: var(--color-red);
+            padding-bottom: 0.18em;
         }
 
         .hero-images {
@@ -96,6 +105,17 @@
 
         .img-placeholder {
             background-color: var(--color-light-gray);
+        }
+
+        .hero-images img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-images .img-placeholder:first-child img {
+            object-position: center 80%;
         }
 
         .hero-images .img-placeholder:first-child {
@@ -158,6 +178,21 @@
             gap: 1.25rem 1rem;
         }
 
+        .shop-now {
+            display: block;
+            width: fit-content;
+            margin: 2.5rem auto 0;
+            padding: 0.9rem 2.5rem;
+            background-color: var(--color-red);
+            color: var(--color-white);
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+        }
+
         .product-card {
             display: flex;
             flex-direction: column;
@@ -167,6 +202,14 @@
         .product-img {
             background-color: var(--color-light-gray);
             aspect-ratio: 3/4;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-meta {
@@ -188,6 +231,14 @@
 
         .editorial-img {
             background-color: var(--color-light-gray);
+            overflow: hidden;
+        }
+
+        .editorial-img img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .editorial-content {
@@ -206,9 +257,10 @@
         }
 
         .editorial-title {
+            font-family: 'Bonfield Serif', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(2.5rem, 5vw, 5rem);
             font-weight: 400;
-            font-style: italic;
+            font-style: normal;
             line-height: 1;
             margin-bottom: 1.5rem;
         }
@@ -317,25 +369,25 @@
     <section class="hero">
         <h1 class="hero-brand">Chantilly</h1>
         <div class="hero-images">
-            <div class="img-placeholder"></div>
-            <div class="img-placeholder"></div>
+            <div class="img-placeholder"><img src="assets/minuet-set/web/hero-set.jpg" alt="Minuet Set — pinstripe double-breasted top and pleated mini skirt with lace trim"></div>
+            <div class="img-placeholder"><img src="assets/minuet-set/web/hero-detail.jpg" alt="Minuet Set — lace trim and button detail"></div>
         </div>
     </section>
 
     <!-- Label Row -->
     <div class="label-row">
-        <span class="label-sm">Spring / Summer 2026</span>
-        <span class="label-sm">New Collection — Available Now</span>
+        <span class="label-sm">The Minuet Set</span>
+        <span class="label-sm">New Arrival — Available Now</span>
     </div>
 
     <!-- Intro -->
     <section class="intro">
         <div>
-            <p class="label-sm">The Label</p>
+            <p class="label-sm">The Minuet Set</p>
         </div>
         <div>
             <p class="intro-text">
-                Chantilly is a clothing label rooted in the quiet elegance of everyday life. Each piece is designed to be worn, lived in, and loved — crafted from natural materials with an attention to detail that lasts well beyond the season.
+                A love letter to vintage European tailoring. Crafted from classic pinstripe fabric with delicate lace accents, the Minuet Set features a structured double-breasted top paired with a pleated mini skirt for an effortlessly feminine silhouette. Elegant, timeless, and made for the romantics.
             </p>
         </div>
     </section>
@@ -348,53 +400,33 @@
         </div>
         <div class="collection-grid">
             <div class="product-card">
-                <div class="product-img"></div>
+                <div class="product-img"><img src="assets/minuet-set/web/product-set.jpg" alt="Minuet Set — full look"></div>
                 <div class="product-meta">
-                    <span>Linen Draped Dress</span>
-                    <span>€285</span>
+                    <span>Minuet Set</span>
+                    <span>₱3,000</span>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"></div>
+                <div class="product-img"><img src="assets/minuet-set/web/product-top.jpg" alt="Minuet Top"></div>
                 <div class="product-meta">
-                    <span>Silk Wrap Top</span>
-                    <span>€195</span>
+                    <span>Minuet Top</span>
+                    <span>₱1,950</span>
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-img"></div>
+                <div class="product-img"><img src="assets/minuet-set/web/product-skirt.jpg" alt="Minuet Skirt"></div>
                 <div class="product-meta">
-                    <span>Relaxed Linen Trouser</span>
-                    <span>€230</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"></div>
-                <div class="product-meta">
-                    <span>Ribbed Knit Cardigan</span>
-                    <span>€310</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"></div>
-                <div class="product-meta">
-                    <span>Linen Shirt Dress</span>
-                    <span>€260</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"></div>
-                <div class="product-meta">
-                    <span>Bias-Cut Slip Skirt</span>
-                    <span>€175</span>
+                    <span>Minuet Skirt</span>
+                    <span>₱1,450</span>
                 </div>
             </div>
         </div>
+        <a href="https://forms.gle/ZM5Aa3Rhir8L6ZPQA" class="shop-now" target="_blank" rel="noopener">Shop Now</a>
     </section>
 
     <!-- Editorial -->
     <section class="editorial">
-        <div class="editorial-img"></div>
+        <div class="editorial-img"><img src="assets/minuet-set/web/editorial.jpg" alt="Minuet Set — worn"></div>
         <div class="editorial-content">
             <p class="editorial-tag">Lookbook — S/S 2026</p>
             <h2 class="editorial-title">Dressed for<br>the in-between</h2>
