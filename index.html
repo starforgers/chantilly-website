@@ -427,6 +427,18 @@
             font-size: 0.6rem;
             letter-spacing: 0.05em;
         }
+
+        /* ── Scroll Fade-in ── */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -440,7 +452,7 @@
     </nav>
 
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero fade-in-section">
         <h1 class="hero-brand">Chantilly</h1>
         <div class="hero-images">
             <div class="img-placeholder"><img src="assets/images/minuet-set/web/hero-set.webp" alt="Minuet Set — pinstripe double-breasted top and pleated mini skirt with lace trim"></div>
@@ -449,13 +461,13 @@
     </section>
 
     <!-- Label Row -->
-    <div class="label-row">
+    <div class="label-row fade-in-section">
         <span class="label-sm">The Minuet Set</span>
         <span class="label-sm">New Arrival — Available Now</span>
     </div>
 
     <!-- Intro -->
-    <section class="intro">
+    <section class="intro fade-in-section">
         <div>
             <p class="label-sm">The Minuet Set</p>
         </div>
@@ -467,7 +479,7 @@
     </section>
 
     <!-- Collection -->
-    <section class="collection">
+    <section class="collection fade-in-section">
         <div class="collection-header">
             <span class="label-sm">New Arrivals</span>
         </div>
@@ -498,7 +510,7 @@
     </section>
 
     <!-- Editorial -->
-    <section class="editorial">
+    <section class="editorial fade-in-section">
         <div class="editorial-img" id="editorial-carousel">
             <img src="assets/images/minuet-set/web/editorial.webp" alt="Minuet Set — worn" class="active">
             <img src="assets/images/minuet-set/web/editorial-2.webp" alt="Minuet Set — back detail" class="no-zoom">
@@ -519,7 +531,7 @@
     </section>
 
     <!-- About -->
-    <section class="about" id="about">
+    <section class="about fade-in-section" id="about">
         <div class="about-inner">
             <p class="label-sm">About</p>
             <div class="about-content">
@@ -531,7 +543,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="fade-in-section">
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Information</h4>
@@ -594,6 +606,22 @@
                     stopAutoplay();
                     next();
                 });
+            });
+        })();
+
+        (function () {
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            sections.forEach(function (section) {
+                observer.observe(section);
             });
         })();
     </script>
